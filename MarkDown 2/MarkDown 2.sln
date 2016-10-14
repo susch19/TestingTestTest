@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2C592CB9-63D7-4758-ADBB-A3F4F9693F9D}"
 	ProjectSection(SolutionItems) = preProject
 		Markdown.text = Markdown.text
+		TextFile.md = TextFile.md
 	EndProjectSection
 EndProject
 Global
