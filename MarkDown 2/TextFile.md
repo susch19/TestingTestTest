@@ -1,2 +1,4 @@
 *curved*  
 **bold**
+
+***both***
