@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\..\..\Downloads\Markdown_1.0.1\test.text" />
+    <None Include="Text2.text" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{362A01D8-51EF-45CB-B680-CD38116C03F9}</ProjectGuid>
