@@ -1,14 +1,62 @@
-###1. Kopfzeile
-####2. Kopfzeile
-#####3. Kopfzeile
-######4. Kopfzeile
+```C#
+public static void NAMEDERMETHODE(
+    SAHECustomerId _customerId,
+    SAHEInvoiceId _invoiceId,
+    date _invoiceDate)
+{
+    SAHERentalTable         rentalTable;
+    SAHEInvoiceTable        invoiceTable;
+    SAHEInvoiceLineTable    invoiceLineTable;
+    int                     i = 0;
+    real                    price;
+    utcDateTime             dtime = DateTimeUtil::newDateTime(_invoiceDate, DateTimeUtil::time(DateTimeUtil::utcNow()));
 
-
-    public display SAHEInvoiceDate getDate()
+    while select forUpdate rentalTable
+        where rentalTable.CustomerId    == _customerId
+            && rentalTable.Invoiced     == NoYes::No
+            && rentalTable.RentalEnd    <  dtime
+            && rentalTable.RentalEnd    != str2datetime("", 0)
     {
-        return SAHEInvoiceTable::find(this.InvoiceId).IvoiceDate;
+        i++;
+        rentalTable.Invoiced = true;
+        invoiceLineTable.ChassisId          = rentalTable.ChassisId;
+        invoiceLineTable.Discount           = rentalTable.Discount;
+        invoiceLineTable.InvoiceId          = _invoiceId;
+        invoiceLineTable.ReferencedRental   = rentalTable.RecId;
+        invoiceLineTable.RentalFrom         = rentalTable.RentalFrom;
+        invoiceLineTable.RentalPerDay       = rentalTable.RentalPerDay;
+        invoiceLineTable.RentalTo           = rentalTable.RentalEnd;
+        invoiceLineTable.LinePrice          = rentalTable.calcPrice();
+        invoiceLineTable.LineNumber         = i;
+        price                              += invoiceLineTable.LinePrice;
+        if (invoiceLineTable.validateWrite()
+            && rentalTable.validateWrite())
+        {
+
+            ttsBegin;
+            invoiceLineTable.insert();
+            rentalTable.update();
+            ttsCommit;
+        }
+
     }
 
+    invoiceTable.InvoicePrice   = price;
+    invoiceTable.InvoiceDate    = DateTimeUtil::date(dtime);
+    invoiceTable.BranchId       = rentalTable.BranchId;
+    invoiceTable.InvoiceId      = _invoiceId;
+    invoiceTable.CustomerId     = _customerId;
+
+    if (invoiceTable.validateWrite())
+    {
+        invoiceTable.insert();
+    }
+    public display SAHEInvoiceDate getDate()
+{
+    return SAHEInvoiceTable::find(this.InvoiceId).IvoiceDate;
+}
+}
+```
 
 Headline h2
 -----------  
@@ -32,7 +80,8 @@ normal text
 1. the (1)  
 2. code (2)
 
-4\. No List anymore
+4\. No List anymore  
+3\. third
 
 * Kein Unterpunkt 
     * Unterpunkt [google]
