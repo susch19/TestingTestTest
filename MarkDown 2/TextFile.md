@@ -1,63 +1,16 @@
-```C#
-public static void NAMEDERMETHODE(
-    SAHECustomerId _customerId,
-    SAHEInvoiceId _invoiceId,
-    date _invoiceDate)
+```csharp
+display NumberOfRecords testMethod(CustTable myTable)
 {
-    SAHERentalTable         rentalTable;
-    SAHEInvoiceTable        invoiceTable;
-    SAHEInvoiceLineTable    invoiceLineTable;
-    int                     i = 0;
-    real                    price;
-    utcDateTime             dtime = DateTimeUtil::newDateTime(_invoiceDate, DateTimeUtil::time(DateTimeUtil::utcNow()));
-
-    while select forUpdate rentalTable
-        where rentalTable.CustomerId    == _customerId
-            && rentalTable.Invoiced     == NoYes::No
-            && rentalTable.RentalEnd    <  dtime
-            && rentalTable.RentalEnd    != str2datetime("", 0)
-    {
-        i++;
-        rentalTable.Invoiced = true;
-        invoiceLineTable.ChassisId          = rentalTable.ChassisId;
-        invoiceLineTable.Discount           = rentalTable.Discount;
-        invoiceLineTable.InvoiceId          = _invoiceId;
-        invoiceLineTable.ReferencedRental   = rentalTable.RecId;
-        invoiceLineTable.RentalFrom         = rentalTable.RentalFrom;
-        invoiceLineTable.RentalPerDay       = rentalTable.RentalPerDay;
-        invoiceLineTable.RentalTo           = rentalTable.RentalEnd;
-        invoiceLineTable.LinePrice          = rentalTable.calcPrice();
-        invoiceLineTable.LineNumber         = i;
-        price                              += invoiceLineTable.LinePrice;
-        if (invoiceLineTable.validateWrite()
-            && rentalTable.validateWrite())
-        {
-
-            ttsBegin;
-            invoiceLineTable.insert();
-            rentalTable.update();
-            ttsCommit;
-        }
-
-    }
-
-    invoiceTable.InvoicePrice   = price;
-    invoiceTable.InvoiceDate    = DateTimeUtil::date(dtime);
-    invoiceTable.BranchId       = rentalTable.BranchId;
-    invoiceTable.InvoiceId      = _invoiceId;
-    invoiceTable.CustomerId     = _customerId;
-
-    if (invoiceTable.validateWrite())
-    {
-        invoiceTable.insert();
-    }
-    public display SAHEInvoiceDate getDate()
-{
-    return SAHEInvoiceTable::find(this.InvoiceId).IvoiceDate;
-}
+   return this.totalNumberOfRows();
 }
 ```
 
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| :-----|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+| this is a new | row, so it's  | nice  |
 Headline h2
 -----------  
 #Headline
