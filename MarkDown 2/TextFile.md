@@ -1,9 +1,8 @@
-```csharp
-display NumberOfRecords testMethod(CustTable myTable)
-{
-   return this.totalNumberOfRows();
-}
-```
+    display NumberOfRecords testMethod(CustTable myTable)  
+    {  
+       return this.totalNumberOfRows();  
+    }
+
 
 | Tables        | Are           | Cool  |
 | ------------- |:-------------:| :-----|
