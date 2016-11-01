@@ -3,13 +3,20 @@
        return this.totalNumberOfRows();  
     }
 
-
 | Tables        | Are           | Cool  |
-| ------------- |:-------------:| :-----|
+| ------------- |:-------------:| :---- |
 | col 3 is      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
+| aslkdjl       | oiqwue        | lqwke |
 | zebra stripes | are neat      |    $1 |
 | this is a new | row, so it's  | nice  |
+| aslkdjl       | oiqasdwue     | lqwdr |
+| aslkdjsdfl    | oiqwwqeue     | lqdf  |
+| aslkewrjl     | oiqwasdue     | lqdfg |
+| aslkdsdfjl    | oiqyxcwue     | lqfd  |
+| aslkdjqwel    | oiqwue        | lcvbe |
+
+
 Headline h2
 -----------  
 #Headline
@@ -18,7 +25,6 @@ Headline h2
 ####Even four  
 [markdown]: https://daringfireball.net/projects/markdown/syntax "Syntax für ihr Markdown"
 ##### Is the fifth even a headline
-
 normal text
 
 ###### h6 is the limit  
