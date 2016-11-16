@@ -1,3 +1,6 @@
+LINKS MÜSSEN NOCH IN DIE DOKUMENTATION!
+=======================================
+
     display NumberOfRecords testMethod(CustTable myTable)  
     {  
        return this.totalNumberOfRows();  
