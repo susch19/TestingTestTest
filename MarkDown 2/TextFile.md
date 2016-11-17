@@ -1,5 +1,4 @@
-LINKS MÜSSEN NOCH IN DIE DOKUMENTATION!
-=======================================
+[Anzeigetext] (https://AdresseZurSeite.de)
 
     display NumberOfRecords testMethod(CustTable myTable)  
     {  
@@ -54,6 +53,7 @@ normal text
 [Ein Link zum drauf drücken](https://www.google.de)
 
 <email@adress.de>
+ "asd"
 [google]: https://google.com/  "Kinda Like a helptext"
 [google2]: https://google.com/  (Kinda Like a helptext)
 [google3]: https://google.com/  'Kinda Like a helptext'
